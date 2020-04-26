@@ -89,16 +89,17 @@ class Dog
       LIMIT 1
       SQL
 
-    dog = DB[:conn].execute(sql,name,breed)
+    dog = DB[:conn].execute(sql, name, breed)
 
 
     if !dog.empty?
       dog = dog[0]
       new_dog = Dog.new(id:dog[0],name:dog[1],breed:dog[2])
-        else
-          new_dog = self.create(name:name,breed:breed)
-        end
-        new_dog
+    else
+      new_dog = self.create(name:name,breed:breed)
+    end
+      
+    new_dog
     
   end
   
